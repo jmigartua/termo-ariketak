@@ -25,17 +25,17 @@
 
 /* The boxes of an exercise page. */
 .box { padding: 12px 18px 4px; margin: 16px 0 22px; border-left: 3px solid var(--line); background: var(--paper); }
-.box > .box-label { display: block; font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; margin: 0 0 6px; color: var(--ink-faint); }
+.box .box-label { display: block; margin-bottom: 6px; font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; margin: 0 0 6px; color: var(--ink-faint); }
 .box p, .box ul, .box ol { font-size: 16px; }
 .box.statement { border-left-color: var(--teal); background: var(--blue-tint); }
-.box.statement > .box-label { color: var(--teal); }
+.box.statement .box-label { color: var(--teal); }
 .box.original { border-left: 2px solid var(--line); padding-top: 8px; }
 .box.original p, .box.original li { font-family: var(--serif); font-size: 14.5px; color: var(--ink-soft); }
 .box.result { border-left-color: var(--amber); background: var(--heat-tint); }
-.box.result > .box-label { color: var(--amber); }
+.box.result .box-label { color: var(--amber); }
 .box.course { border-left: 2px dashed var(--ink-faint); }
 .box.check { border-left-color: var(--bad); background: var(--tint); }
-.box.check > .box-label { color: var(--bad); }
+.box.check .box-label { color: var(--bad); }
 details.original-wrap { margin: -10px 0 22px; }
 details.original-wrap > summary { cursor: pointer; font-family: var(--sans); font-size: 13.5px; color: var(--ink-faint); }
 
@@ -90,7 +90,7 @@ details.original-wrap > summary { cursor: pointer; font-family: var(--sans); fon
 .widget-links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--sans); font-size: 14.5px; margin: 6px 0 22px; }
 .widget-links a { font-weight: 600; }
 .box.watch { border-left-color: var(--ok); }
-.box.watch > .box-label { color: var(--ok); }
+.box.watch .box-label { color: var(--ok); }
 .workshop-note { border: 1px dashed var(--line); padding: 10px 16px; margin: 22px 0 0; font-size: 14.5px; color: var(--ink-soft); }
 .workshop-note ul { margin: 0; padding-left: 18px; }
 .ex-card .langs { font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); }
