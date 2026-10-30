@@ -1,0 +1,96 @@
+/* Second law · exercises 1–26 — rules of this project only; theme.css and site.css are the family kit, copied unchanged.
+   Identity: a cold blue as the primary (the kit names its primary token --teal for history) and a heat red as the
+   accent: the two reservoirs of every exercise here. Distinct from UNED Labo's orange and the kit's default teal. */
+:root {
+  --teal: #2c5aa0; --teal-soft: #4772b8; --amber: #a8432a;
+  --ok: #2e6b5e; --warn: #8a6a00; --bad: #9a3f3f;
+  --blue-tint: #eef3fa; --heat-tint: #fbf1ee;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --teal: #8fb3e8; --teal-soft: #a9c5ee; --amber: #e79a84;
+    --ok: #7fc4b3; --warn: #e3c15a; --bad: #e08a8a;
+    --blue-tint: #18202c; --heat-tint: #2a1c18;
+  }
+}
+
+/* Labels and chips. */
+.lbl { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 3px; }
+.chip { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 1px 7px; border-radius: 2px; border: 1px solid currentColor; line-height: 1.6; }
+.chip-engines { color: var(--amber); } .chip-entropy { color: var(--teal); } .chip-flag { color: var(--bad); }
+
+/* The strip of facts under an exercise's title (written by latex/exercise.lua from the front matter). */
+.ex-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 24px; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 12px 0; margin: 10px 0 24px; font-size: 14px; }
+.ex-meta a { font-weight: 500; }
+
+/* The boxes of an exercise page. */
+.box { padding: 12px 18px 4px; margin: 16px 0 22px; border-left: 3px solid var(--line); background: var(--paper); }
+.box > .box-label { display: block; font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; margin: 0 0 6px; color: var(--ink-faint); }
+.box p, .box ul, .box ol { font-size: 16px; }
+.box.statement { border-left-color: var(--teal); background: var(--blue-tint); }
+.box.statement > .box-label { color: var(--teal); }
+.box.original { border-left: 2px solid var(--line); padding-top: 8px; }
+.box.original p, .box.original li { font-family: var(--serif); font-size: 14.5px; color: var(--ink-soft); }
+.box.result { border-left-color: var(--amber); background: var(--heat-tint); }
+.box.result > .box-label { color: var(--amber); }
+.box.course { border-left: 2px dashed var(--ink-faint); }
+.box.check { border-left-color: var(--bad); background: var(--tint); }
+.box.check > .box-label { color: var(--bad); }
+details.original-wrap { margin: -10px 0 22px; }
+details.original-wrap > summary { cursor: pointer; font-family: var(--sans); font-size: 13.5px; color: var(--ink-faint); }
+
+/* Home: the exercise cards. */
+.ex-group { margin: 30px 0 10px; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--teal); }
+.ex-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.ex-card { border: 1px solid var(--line-soft); padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 6px; background: var(--paper); color: inherit; }
+.ex-card:hover { border-color: var(--teal); }
+.ex-card .num { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+.ex-card h3 { font-family: var(--serif); font-size: 17px; margin: 0; line-height: 1.3; }
+.ex-card h3 a { color: var(--ink); }
+.ex-card p { font-size: 14px; color: var(--ink-soft); margin: 0; flex: 1; }
+.ex-card .links { font-family: var(--sans); font-size: 13.5px; display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+
+/* Brief, decisions, log. */
+.verbatim { border-left: 3px solid var(--teal); background: var(--tint); padding: 12px 18px; margin: 14px 0 22px; font-family: var(--serif); font-size: 15.5px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.verbatim pre.vtext { font: inherit; margin: 0; padding: 0; border: 0; background: none; white-space: pre-wrap; overflow-wrap: anywhere; }
+.verbatim .who { display: block; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; white-space: normal; }
+.dec { border: 1px solid var(--line-soft); border-left: 4px solid var(--amber); padding: 12px 18px 8px; margin: 16px 0; background: var(--paper); }
+.dec h3 { margin: 6px 0 8px; font-size: 18px; line-height: 1.3; }
+.dec p { margin: 0 0 8px; font-size: 15px; }
+.status-answered { color: var(--ok); } .status-assumed { color: var(--warn); }
+.log-entry { border-top: 1px solid var(--line); padding: 12px 0 4px; }
+.log-entry .when { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+
+/* The reading column: figures, formulas and tables that fit a phone. */
+.docs-main figure img, .docs-main p img { max-width: 100%; height: auto; }
+.docs-main p:has(.katex) { overflow-x: auto; }   /* not on li: overflow clips the list marker */
+.docs-main .katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.docs-main table td:first-child, .docs-main table th:first-child, .docs-main table td:last-child { white-space: nowrap; }
+.docs-main table { display: block; width: max-content; max-width: 100%; overflow-x: auto; }
+.docs-main .quarto-title-block, .docs-main #title-block-header { display: block !important; max-width: none; padding: 0; margin: 0 0 8px; }
+.docs-main .quarto-title-block .quarto-title-meta, .docs-main .quarto-title-block .abstract { display: none; }
+.docs-main .quarto-layout-panel .quarto-layout-row { display: flex; gap: 18px; }
+.docs-main .quarto-layout-panel .quarto-layout-cell { flex: 1 1 0; min-width: 0; }
+.docs-main .quarto-layout-panel figure { margin: 0 0 10px; }
+.docs-main .quarto-layout-panel > figure > figcaption { margin-top: 4px; }
+@media (max-width: 600px) { .docs-main .quarto-layout-panel .quarto-layout-row { flex-direction: column; } }
+.docs-main figcaption { font-size: 13.5px; color: var(--ink-soft); }
+.page-article code, .docs-main code, .docs-main a, .docs-main p, .docs-main li { overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .docs-main { overflow-x: hidden; min-width: 0; }
+  .docs-nav { position: static; top: auto; max-height: none; overflow: visible; }
+  .docs-nav .docs-fold, .docs-toc .docs-fold { display: none; }
+  .docs.nav-folded, .docs.toc-folded, .docs.nav-folded.toc-folded { grid-template-columns: 1fr; }
+}
+
+/* --- this site: the sibling classes and the embedded widgets ------------------------------------------------------ */
+.sibling-only { display: none !important; }
+.widget-frame { margin: 18px 0 8px; border: 1px solid var(--line); background: var(--paper); }
+.widget-frame iframe { display: block; width: 100%; height: min(94vh, 1180px); border: 0; }
+.widget-links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--sans); font-size: 14.5px; margin: 6px 0 22px; }
+.widget-links a { font-weight: 600; }
+.box.watch { border-left-color: var(--ok); }
+.box.watch > .box-label { color: var(--ok); }
+.workshop-note { border: 1px dashed var(--line); padding: 10px 16px; margin: 22px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+.workshop-note ul { margin: 0; padding-left: 18px; }
+.ex-card .langs { font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); }
